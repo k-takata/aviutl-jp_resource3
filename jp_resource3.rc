@@ -1,0 +1,1035 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+AVIUTL MENU FIXED IMPURE 
+BEGIN
+    POPUP "ファイル(&F)"
+    BEGIN
+        MENUITEM "開く(&O)\t Ctrl+O",           5097
+        MENUITEM "閉じる(&C)",                  5157
+        MENUITEM "追加読み込み(&D)",            5100
+        MENUITEM "音声読み込み(&A)",            5168
+        MENUITEM SEPARATOR
+        MENUITEM "編集プロジェクトを開く(&R)",  5118
+        MENUITEM "編集プロジェクトの保存(&J)",  1023
+        MENUITEM SEPARATOR
+        MENUITEM "AVI出力(&S)\t Ctrl+S",        1003
+        MENUITEM "WAV出力(&W)",                 1062
+        POPUP "プラグイン出力(&P)"
+        BEGIN
+            MENUITEM "",                            5395
+        END
+        MENUITEM "バッチ出力(&B)",              1025
+        MENUITEM "出力の中断\t Esc",            1009
+        MENUITEM SEPARATOR
+        POPUP "インポート(&I)"
+        BEGIN
+            MENUITEM "キーフレームリスト",          5167
+            MENUITEM "",                            14000
+        END
+        POPUP "エクスポート(&E)"
+        BEGIN
+            MENUITEM "キーフレームリスト",          1054
+            MENUITEM "",                            15000
+        END
+        POPUP "AVIファイル操作(&F)"
+        BEGIN
+            MENUITEM "AVIファイルの連結(&C)",       1057
+            MENUITEM "AVIファイルの合成(&M)",       1058
+        END
+        MENUITEM SEPARATOR
+        POPUP "環境設定(&V)"
+        BEGIN
+            POPUP "優先度(&P)"
+            BEGIN
+                MENUITEM "Highest",                     1041
+                MENUITEM "High",                        1040
+                MENUITEM "Normal",                      1039
+                MENUITEM "Low",                         1038
+                MENUITEM "Lowest",                      1037
+                MENUITEM SEPARATOR
+                MENUITEM "Realtime",                    1042
+            END
+            MENUITEM SEPARATOR
+            MENUITEM "システムの設定(&S)",          108
+            MENUITEM "コーデックの設定(&C)",        109
+            MENUITEM "入力プラグイン優先度の設定(&I)", 1086
+            MENUITEM "ショートカットキーの設定(&K)", 102
+            MENUITEM "言語の設定 (&Language)",      106
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "終了(&X)",                    1002
+    END
+    POPUP "フィルタ(&L)"
+    BEGIN
+        MENUITEM "",                            10000
+        MENUITEM SEPARATOR
+        MENUITEM "",                            10999
+        MENUITEM SEPARATOR
+        MENUITEM "すべてのフィルタをOFFにする", 5183
+    END
+    POPUP "設定(&S)"
+    BEGIN
+        MENUITEM "",                            11000
+        MENUITEM SEPARATOR
+        MENUITEM "",                            11999
+        MENUITEM SEPARATOR
+        MENUITEM "",                            11998
+        MENUITEM SEPARATOR
+        POPUP "圧縮の設定(&C)"
+        BEGIN
+            MENUITEM "ビデオ圧縮の設定(&V)",        5127
+            MENUITEM "オーディオ圧縮の設定(&A)",    5128
+            MENUITEM SEPARATOR
+            MENUITEM "プラグイン出力の設定",        5399
+        END
+        POPUP "フィルタ順序の設定(&F)"
+        BEGIN
+            MENUITEM "ビデオフィルタ順序の設定(&V)", 5139
+            MENUITEM "オーディオフィルタ順序の設定(&A)", 5181
+        END
+    END
+    POPUP "編集(&E)"
+    BEGIN
+        MENUITEM "現在のフレームの画像をコピー\t Ctrl+C", 1020
+        MENUITEM "現在のフレームに画像を貼り付け\t Ctrl+V", 5117
+        MENUITEM "現在のフレームをクリップボードにコピー", 1026
+        MENUITEM "現在のフレームにクリップボードから貼り付け", 5123
+        MENUITEM "現在のフレームの出力イメージをクリップボードにコピー", 
+                                                1070
+        MENUITEM "指定のフレームに移動\t Ctrl+G", 5131
+        MENUITEM "選択範囲の指定",              5115
+        MENUITEM "選択範囲のフレームに画像を貼り付け", 5184
+        MENUITEM "選択範囲のフレーム切り出し",  5143
+        MENUITEM "選択範囲のフレーム削除",      5101
+        MENUITEM "元に戻す\t Ctrl+Z",           5147
+        MENUITEM "すべてのフレームを選択\t Ctrl+A", 5112
+        MENUITEM SEPARATOR
+        MENUITEM "選択範囲を新しいプロファイルにする", 5109
+        MENUITEM "選択範囲を新しい圧縮の設定にする", 5126
+        MENUITEM "選択範囲のインターレース解除を指定", 5125
+        POPUP "現在のフレームのインターレース解除"
+        BEGIN
+            MENUITEM "標準\t 0(テンキー)",          5196
+            MENUITEM "反転\t 1(テンキー)",          5197
+            MENUITEM "奇数\t 2(テンキー)",          5198
+            MENUITEM "偶数\t 3(テンキー)",          5199
+            MENUITEM "二重化\t 4(テンキー)",        5200
+            MENUITEM "自動\t 5(テンキー)",          5201
+        END
+        POPUP "現在のフレームのプロファイル"
+        BEGIN
+            MENUITEM "標準プロファイル\t 0",        5206
+            MENUITEM "プロファイル[1]\t 1",         5207
+            MENUITEM "プロファイル[2]\t 2",         5208
+            MENUITEM "プロファイル[3]\t 3",         5209
+            MENUITEM "プロファイル[4]\t 4",         5210
+            MENUITEM "プロファイル[5]\t 5",         5211
+            MENUITEM "プロファイル[6]\t 6",         5212
+            MENUITEM "プロファイル[7]\t 7",         5213
+            MENUITEM "プロファイル[8]\t 8",         5214
+            MENUITEM "プロファイル[9]\t 9",         5215
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "現在のフレームをキーフレームにする", 5129
+        MENUITEM "現在のフレームを優先間引きフレームにする", 5132
+        MENUITEM "現在のフレームをマークする",  5130
+        MENUITEM "現在のフレームをコピーフレームにする", 5156
+        MENUITEM SEPARATOR
+        MENUITEM "再生速度の情報を変更",        5398
+        MENUITEM SEPARATOR
+        POPUP "基本機能"
+        BEGIN
+            MENUITEM "次のフレームに移動\t →",     9002
+            MENUITEM "前のフレームに移動\t ←",     9001
+            MENUITEM "削除フレームを飛ばして次のフレームに移動\t ↓", 5142
+            MENUITEM "削除フレームを飛ばして前のフレームに移動\t ↑", 5141
+            MENUITEM "先頭のフレームに移動\t Home", 5396
+            MENUITEM "最後のフレームに移動\t End",  5397
+            MENUITEM "現在のフレームを選択開始フレームにする\t [", 5110
+            MENUITEM "現在のフレームを選択終了フレームにする\t ]", 5111
+            MENUITEM "選択開始フレームに移動",      5103
+            MENUITEM "選択終了フレームに移動",      5104
+            MENUITEM "次のキーフレームに移動",      5174
+            MENUITEM "前のキーフレームに移動",      5175
+            MENUITEM "次のマークフレームに移動",    5178
+            MENUITEM "前のマークフレームに移動",    5179
+            MENUITEM "次のプロファイルの変更フレームに移動", 5176
+            MENUITEM "前のプロファイルの変更フレームに移動", 5177
+            MENUITEM "任意フレーム数次移動A\t PageDown", 5187
+            MENUITEM "任意フレーム数前移動A\t PageUp", 5188
+            MENUITEM "任意フレーム数次移動B",       5189
+            MENUITEM "任意フレーム数前移動B",       5190
+            MENUITEM "任意フレーム数次移動C",       5191
+            MENUITEM "任意フレーム数前移動C",       5192
+            MENUITEM "任意フレーム数次移動D",       5193
+            MENUITEM "任意フレーム数前移動D",       5194
+        END
+    END
+    POPUP "プロファイル(&P)"
+    BEGIN
+        MENUITEM "",                            8005
+        MENUITEM SEPARATOR
+        POPUP "プロファイルの編集"
+        BEGIN
+            MENUITEM "新しいプロファイルを作る(&N)", 8001
+            MENUITEM "現在のプロファイルを削除する(&D)", 8002
+            MENUITEM "現在のプロファイルを初期値に戻す(&I)", 8000
+        END
+    END
+    POPUP "表示(&V)"
+    BEGIN
+        POPUP "拡大表示(&M)"
+        BEGIN
+            MENUITEM "25%",                         9200
+            MENUITEM "50%",                         9201
+            MENUITEM "100%",                        9202
+            MENUITEM "200%",                        9203
+            MENUITEM "300%",                        9204
+            MENUITEM "400%",                        9205
+            MENUITEM "WindowSize",                  9206
+            MENUITEM SEPARATOR
+            MENUITEM "ズームイン\t +(テンキー)",    9107
+            MENUITEM "ズームアウト\t -(テンキー)",  9108
+        END
+        MENUITEM "オーディオ波形の表示(&A)",    9104
+        MENUITEM "時間の表示(&T)",              9114
+        MENUITEM "セーブ中もプレビュー表示(&P)", 9105
+        MENUITEM "間引き予定フレームの表示(&S)", 9106
+        MENUITEM "再圧縮が必要なフレームの表示(&E)", 9110
+        MENUITEM "ソースファイルのキーフレーム表示(&K)", 9109
+        MENUITEM SEPARATOR
+        MENUITEM "",                            10998
+        MENUITEM SEPARATOR
+        MENUITEM "常に手前に表示(&O)",          9113
+        MENUITEM "オーバーレイ表示(&V)",        9111
+        MENUITEM "セーブ中のみフィルタリングして表示(&F)", 5144
+    END
+    POPUP "その他(&O)"
+    BEGIN
+        MENUITEM "ファイルの情報(&F)",          1006
+        MENUITEM "オーバーレイ情報(&V)",        104
+        MENUITEM "プラグインフィルタ情報(&P)",  101
+        MENUITEM "入力プラグイン情報(&I)",      103
+        MENUITEM "出力プラグイン情報(&O)",      105
+        MENUITEM "色変換プラグイン情報(&C)",    110
+        MENUITEM "言語拡張リソース情報(&L)",    107
+        MENUITEM SEPARATOR
+        MENUITEM "バージョン情報(&A)",          100
+    END
+END
+
+CONTEXT MENU FIXED IMPURE 
+BEGIN
+    POPUP "context"
+    BEGIN
+        POPUP "拡大表示"
+        BEGIN
+            MENUITEM "25%",                         9200
+            MENUITEM "50%",                         9201
+            MENUITEM "100%",                        9202
+            MENUITEM "200%",                        9203
+            MENUITEM "300%",                        9204
+            MENUITEM "400%",                        9205
+            MENUITEM "WindowSize",                  9206
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "画像をコピー",                1020
+        MENUITEM "画像を貼り付け",              5117
+        MENUITEM "クリップボードにコピー",      1026
+        MENUITEM "クリップボードから貼り付け",  5123
+        MENUITEM "クリップボードに出力イメージをコピー", 1070
+        MENUITEM "選択範囲の切り出し",          5143
+        MENUITEM "選択範囲の削除",              5101
+        MENUITEM "元に戻す",                    5147
+        MENUITEM "すべてを選択",                5112
+        MENUITEM SEPARATOR
+        MENUITEM "マークする",                  5130
+    END
+END
+
+CONTEXT2 MENU FIXED IMPURE 
+BEGIN
+    POPUP "context"
+    BEGIN
+        MENUITEM "フィルタのON/OFF切替え",      13000
+        MENUITEM "設定を初期値に戻す",          13001
+    END
+END
+
+CONTEXT4 MENU FIXED IMPURE 
+BEGIN
+    POPUP "context"
+    BEGIN
+        MENUITEM "再生フレームへ移動",          108
+        MENUITEM SEPARATOR
+        MENUITEM "再生/一時停止",               105
+        MENUITEM "停止",                        101
+        MENUITEM SEPARATOR
+        MENUITEM "選択範囲を再生",              107
+        MENUITEM "繰り返し",                    103
+        MENUITEM SEPARATOR
+        POPUP "再生サイズ"
+        BEGIN
+            MENUITEM "25%",                         117
+            MENUITEM "50%",                         110
+            MENUITEM "100%",                        111
+            MENUITEM "200%",                        112
+            MENUITEM "640x480",                     113
+            MENUITEM "320x240",                     114
+            MENUITEM "160x120",                     115
+            MENUITEM "WindowSize",                  116
+        END
+    END
+END
+
+CONTEXT_TOOL MENU FIXED IMPURE 
+BEGIN
+    POPUP "context"
+    BEGIN
+        MENUITEM "&1列表示",                    100
+        MENUITEM "&2列表示",                    101
+        MENUITEM "&3列表示",                    102
+        MENUITEM "&4列表示",                    103
+        MENUITEM SEPARATOR
+        MENUITEM "アイコンの表示(&I)",          110
+        MENUITEM "基本設定の表示(&B)",          111
+        MENUITEM "フィルタの表示(&F)",          112
+    END
+END
+
+HIST MENU FIXED IMPURE 
+BEGIN
+    POPUP "表示(&V)"
+    BEGIN
+        MENUITEM "&RGB",                        100
+        MENUITEM "&YCbCr",                      101
+    END
+END
+
+PLAY MENU FIXED IMPURE 
+BEGIN
+    POPUP "再生(&P)"
+    BEGIN
+        MENUITEM "再生/一時停止",               105
+        MENUITEM "停止",                        101
+        MENUITEM SEPARATOR
+        MENUITEM "選択範囲を再生",              107
+        MENUITEM "繰り返し",                    103
+    END
+    POPUP "表示(&V)"
+    BEGIN
+        POPUP "再生サイズ"
+        BEGIN
+            MENUITEM "50%",                         110
+            MENUITEM "100%",                        111
+            MENUITEM "200%",                        112
+            MENUITEM "640x480",                     113
+            MENUITEM "320x240",                     114
+            MENUITEM "160x120",                     115
+            MENUITEM "WindowSize",                  116
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "ビデオフィルタを無効にする",  104
+        MENUITEM "オーバーレイ表示",            106
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+AVICHAIN DIALOGEX 0, 0, 288, 300
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "AVIファイルの連結"
+FONT 9, "MS UI Gothic"
+BEGIN
+    PUSHBUTTON      "追加(&A)",32703,228,20,52,14,BS_CENTER
+    PUSHBUTTON      "連番ファイル追加",32707,228,36,52,14,BS_CENTER
+    PUSHBUTTON      "削除(&D)",32704,228,52,52,14,BS_CENTER
+    PUSHBUTTON      "すべて削除(&L)",32700,228,68,52,14,BS_CENTER
+    DEFPUSHBUTTON   "OK",1,228,88,52,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,228,104,52,14,BS_CENTER
+    LTEXT           "出力ファイル(&O):",-1,8,202,47,8,NOT WS_GROUP
+    EDITTEXT        32104,55,200,189,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "参照(&R)",32304,248,199,32,14,BS_CENTER
+    LTEXT           "タイトル(&T):",-1,12,222,34,8,NOT WS_GROUP
+    EDITTEXT        32100,12,230,128,44,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "コメント(&C):",-1,144,222,34,8,NOT WS_GROUP
+    EDITTEXT        32101,144,230,128,44,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "著作権(&R):",-1,12,280,31,8,NOT WS_GROUP
+    EDITTEXT        32102,46,278,222,12,ES_AUTOHSCROLL | ES_WANTRETURN,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "入力ファイル(&I)",-1,8,8,46,8,NOT WS_GROUP
+    LISTBOX         32600,8,18,212,172,NOT LBS_NOTIFY | LBS_HASSTRINGS | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+END
+
+AVIMIX DIALOG FIXED IMPURE  0, 0, 288, 164
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "AVIファイルの合成"
+FONT 9, "MS UI Gothic"
+BEGIN
+    LTEXT           "映像ファイル(&V):",-1,8,10,47,8,NOT WS_GROUP
+    EDITTEXT        32105,55,8,189,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "音声ファイル(&A):",-1,8,26,47,8,NOT WS_GROUP
+    EDITTEXT        32106,55,24,189,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "出力ファイル(&O):",-1,8,46,47,8,NOT WS_GROUP
+    EDITTEXT        32104,55,44,189,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "参照",32305,248,7,32,14,BS_CENTER
+    PUSHBUTTON      "参照",32306,248,23,32,14,BS_CENTER
+    PUSHBUTTON      "参照",32304,248,43,32,14,BS_CENTER
+    DEFPUSHBUTTON   "OK",1,172,66,52,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,228,66,52,14,BS_CENTER
+    LTEXT           "タイトル(&T):",-1,12,84,34,8,NOT WS_GROUP
+    EDITTEXT        32100,12,92,128,44,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "コメント(&C):",-1,144,84,34,8,NOT WS_GROUP
+    EDITTEXT        32101,144,92,128,44,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "著作権(&R):",-1,12,142,31,8,NOT WS_GROUP
+    EDITTEXT        32102,46,140,222,12,ES_AUTOHSCROLL | ES_WANTRETURN,
+                    WS_EX_CLIENTEDGE
+END
+
+#if 0
+BATCH DIALOG FIXED IMPURE  0, 0, 320, 214
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "バッチ出力リスト"
+FONT 9, "MS UI Gothic"
+BEGIN
+    PUSHBUTTON      "閉じる",32713,272,164,40,14,BS_CENTER
+    LISTBOX         32600,8,8,256,172,NOT LBS_NOTIFY | LBS_HASSTRINGS | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "上に移動",32701,272,8,40,14,BS_CENTER
+    PUSHBUTTON      "下に移動",32702,272,24,40,14,BS_CENTER
+    PUSHBUTTON      "追加",32709,272,46,40,14,BS_CENTER
+    PUSHBUTTON      "削除",32704,272,62,40,14,BS_CENTER
+    PUSHBUTTON      "すべて削除",32700,272,78,40,14,BS_CENTER
+    PUSHBUTTON      "出力先変更",32300,272,101,40,14,BS_CENTER
+    PUSHBUTTON      "開始",32710,272,125,40,14,BS_CENTER
+    PUSHBUTTON      "中断",32711,272,141,40,14,BS_CENTER
+    LTEXT           "バッチ出力終了時に",-1,10,186,60,8,NOT WS_GROUP
+    COMBOBOX        32500,71,183,96,96,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "正常に終了したものを自動的に削除",32200,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,180,184,112,12
+    LTEXT           "",32400,0,202,320,12,SS_CENTERIMAGE | NOT WS_GROUP,
+                    WS_EX_STATICEDGE
+END
+#endif
+
+CODEC DIALOG FIXED IMPURE  0, 0, 256, 150
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "コーデックの設定"
+FONT 9, "MS UI Gothic"
+BEGIN
+    PUSHBUTTON      "OK",1,144,126,48,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,198,126,48,14,BS_CENTER
+    LISTBOX         32600,8,10,128,136,LBS_HASSTRINGS | LBS_DISABLENOSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "",32400,144,10,104,18,NOT WS_GROUP,WS_EX_STATICEDGE
+    CONTROL         "YUY2で展開する(&D)",32200,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,144,32,76,12
+    CONTROL         "YUY2で圧縮する(&E)",32201,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,144,46,76,12
+    CONTROL         "圧縮の設定を保持する(&S)",32202,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,144,60,86,12
+END
+
+INPUTLIST DIALOG FIXED IMPURE  0, 0, 171, 226
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "入力プラグインの優先度"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,8,204,48,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,64,204,48,14,BS_CENTER
+    LISTBOX         32600,8,8,155,172,LBS_HASSTRINGS | LBS_DISABLENOSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "上に移動(&U)",32701,8,184,39,14,BS_CENTER
+    PUSHBUTTON      "下に移動(&D)",32702,50,184,39,14,BS_CENTER
+    PUSHBUTTON      "初期化(&I)",32700,92,184,36,14,BS_CENTER
+    PUSHBUTTON      "設定(&S)",32708,131,184,32,14,BS_CENTER
+    ICON            "drag",32715,-1,-1,1,1
+END
+
+INTER DIALOG FIXED IMPURE  0, 0, 128, 56
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "インターレース解除の指定"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,8,32,52,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,68,32,52,14,BS_CENTER
+    COMBOBOX        32500,8,8,112,128,CBS_DROPDOWNLIST | WS_TABSTOP
+END
+
+KEYCFGLIST DIALOG FIXED IMPURE  0, 0, 272, 260
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "ショートカットキー登録"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,208,220,52,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,208,236,52,14,BS_CENTER
+    LISTBOX         32600,8,8,192,244,LBS_HASSTRINGS | LBS_DISABLENOSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         32601,208,8,56,160,LBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "Shift",32200,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,208,
+                    164,28,12
+    CONTROL         "Ctrl",32201,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,240,
+                    164,24,12
+    CONTROL         "Alt",32202,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,208,
+                    176,24,12
+    PUSHBUTTON      "標準に戻す(&D)",32700,208,196,52,14,BS_CENTER
+END
+
+LANG DIALOG FIXED IMPURE  0, 0, 128, 80
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "言語の設定"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,8,32,52,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,68,32,52,14,BS_CENTER
+    COMBOBOX        32500,8,8,112,128,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "※この設定はAviUtlの再起動後に有効になります",-1,16,55,
+                    96,16,NOT WS_GROUP
+END
+
+LOAD_OPTION DIALOG FIXED IMPURE  0, 0, 370, 72
+STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS
+FONT 9, "MS UI Gothic"
+BEGIN
+    LTEXT           "",1119,0,0,370,32
+    CONTROL         "連番AVI読み込み",32201,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,130,32,64,12
+    CONTROL         "fps調整",32202,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    130,44,36,12
+    CONTROL         "60fps読み込み",32200,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,130,56,56,12
+    CONTROL         "選択範囲に読み込む",32203,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,220,32,76,12
+    COMBOBOX        32500,220,54,74,128,CBS_DROPDOWNLIST | WS_VSCROLL
+END
+
+MOVE DIALOG FIXED IMPURE  0, 0, 74, 30
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "移動先の指定"
+FONT 9, "MS UI Gothic"
+BEGIN
+    EDITTEXT        32000,8,8,58,12
+END
+
+PRIORITYLIST DIALOG FIXED IMPURE  0, 0, 139, 226
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "フィルタの順序"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,8,204,52,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,68,204,52,14,BS_CENTER
+    LISTBOX         32600,8,8,123,172,NOT LBS_NOTIFY | LBS_HASSTRINGS | 
+                    LBS_DISABLENOSCROLL | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "上に移動(&U)",32701,8,184,39,14,BS_CENTER
+    PUSHBUTTON      "下に移動(&D)",32702,50,184,39,14,BS_CENTER
+    PUSHBUTTON      "初期化(&I)",32700,92,184,39,14,BS_CENTER
+    ICON            "drag",32715,-1,-1,1,1
+END
+
+SAVE_OPTION DIALOGEX 0, 0, 370, 178
+STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    LTEXT           "",1119,0,0,370,32
+    LTEXT           "",32406,68,33,242,12,SS_CENTERIMAGE | SS_SUNKEN | NOT 
+                    WS_GROUP
+    PUSHBUTTON      "バッチ登録(&B)",32302,316,32,50,14,BS_CENTER
+    PUSHBUTTON      "ビデオ圧縮(&V)",32300,67,52,54,16,BS_CENTER
+    CONTROL         "",32400,"Static",SS_LEFTNOWORDWRAP,129,56,180,10
+    CONTROL         "",-1,"Static",SS_ETCHEDFRAME,125,52,188,16
+    PUSHBUTTON      "オーディオ圧縮(&A)",32301,67,72,54,16,BS_CENTER
+    CONTROL         "",32401,"Static",SS_LEFTNOWORDWRAP,129,76,180,10
+    CONTROL         "",-1,"Static",SS_ETCHEDFRAME,125,72,188,16
+    CONTROL         "再圧縮無し",32200,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    316,54,44,12
+    CONTROL         "再圧縮無し",32203,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    316,70,44,10
+    CONTROL         "音声無し",32201,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    316,80,40,10
+    LTEXT           "インターリーブ間隔(&I):",-1,68,97,57,8,NOT WS_GROUP
+    EDITTEXT        32000,126,95,14,12,ES_AUTOHSCROLL | ES_WANTRETURN,
+                    WS_EX_CLIENTEDGE | WS_EX_RIGHT
+    LTEXT           "フレーム",-1,142,97,24,8,NOT WS_GROUP
+    CONTROL         "音声をWAV出力(&W)",32204,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,172,95,57,12
+    CONTROL         "ログ出力(&L)",32202,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,240,95,43,12
+    PUSHBUTTON      "Ex.info",32303,287,95,24,12,BS_CENTER
+    LTEXT           "タイトル(&T):",32402,67,112,34,8,NOT WS_GROUP
+    EDITTEXT        32100,67,120,140,36,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "コメント(&C):",32403,210,112,34,8,NOT WS_GROUP
+    EDITTEXT        32101,210,120,140,36,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | WS_VSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "著作権(&R):",32404,67,162,31,8,NOT WS_GROUP
+    EDITTEXT        32102,101,160,249,12,ES_AUTOHSCROLL | ES_WANTRETURN,
+                    WS_EX_CLIENTEDGE
+END
+
+SELECT DIALOG FIXED IMPURE  0, 0, 142, 72
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "選択範囲の指定"
+FONT 9, "MS UI Gothic"
+BEGIN
+    LTEXT           "選択開始フレーム(&S):",-1,12,12,63,12,NOT WS_GROUP
+    EDITTEXT        32000,77,10,52,12
+    LTEXT           "選択終了フレーム(&E):",-1,12,28,63,8,NOT WS_GROUP
+    EDITTEXT        32001,77,26,52,12
+    DEFPUSHBUTTON   "OK",1,12,48,52,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,72,48,52,14,BS_CENTER
+END
+
+SIZE DIALOG FIXED IMPURE  0, 0, 128, 56
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "サイズの指定"
+FONT 9, "MS UI Gothic"
+BEGIN
+    LTEXT           "&X",-1,12,12,8,8,NOT WS_GROUP
+    EDITTEXT        32000,20,10,36,12
+    LTEXT           "&Y",-1,68,12,8,8,NOT WS_GROUP
+    EDITTEXT        32001,76,10,36,12
+    DEFPUSHBUTTON   "OK",1,8,32,52,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,68,32,52,14,BS_CENTER
+END
+
+STRINGS DIALOG FIXED IMPURE  0, 0, 272, 30
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "新しいプロファイル名"
+FONT 9, "MS UI Gothic"
+BEGIN
+    EDITTEXT        32100,8,8,256,12
+END
+
+SYSTEM DIALOG FIXED IMPURE  0, 0, 258, 348
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "システムの設定"
+FONT 9, "MS UI Gothic"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,76,328,48,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,136,328,48,14,BS_CENTER
+    LTEXT           "最大画像サイズ",-1,8,8,52,8,NOT WS_GROUP
+    LTEXT           "幅",-1,84,8,8,8,NOT WS_GROUP
+    EDITTEXT        32000,92,5,48,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "高さ",-1,143,8,14,8,NOT WS_GROUP
+    EDITTEXT        32001,156,5,48,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "最大フレーム数",-1,8,20,52,8,NOT WS_GROUP
+    EDITTEXT        32002,92,17,48,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "キャッシュフレーム数",-1,8,32,64,8,NOT WS_GROUP
+    EDITTEXT        32003,92,29,48,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "リサイズ設定の解像度リスト",-1,8,44,84,8,NOT WS_GROUP
+    EDITTEXT        32103,92,41,156,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
+    CONTROL         "プラグインとコーデックの情報をキャッシュする",32202,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,56,148,12
+    CONTROL         "プロファイルに圧縮の設定を保持する",32201,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,68,120,12
+    CONTROL         "フレーム番号の表示を1からにする",32203,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,80,116,12
+    CONTROL         "フレーム移動時にSHIFTキーを押している時は範囲選択移動にする",
+                    32204,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,92,208,12
+    CONTROL         "YUY2フィルタモード (プラグインフィルタが使えなくなります)",
+                    32205,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,104,192,12
+    LTEXT           "※上記の設定はAviUtlの再起動後に有効になります",-1,8,
+                    120,184,8,NOT WS_GROUP
+    CONTROL         "",-1,"Static",SS_ETCHEDHORZ,4,134,248,2
+    LTEXT           "任意フレーム数移動",-1,8,143,64,8,NOT WS_GROUP
+    LTEXT           "A",-1,85,143,8,8,NOT WS_GROUP
+    EDITTEXT        32005,92,140,32,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "B",-1,126,143,8,8,NOT WS_GROUP
+    EDITTEXT        32006,133,140,32,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "C",-1,168,143,8,8,NOT WS_GROUP
+    EDITTEXT        32007,175,140,32,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "D",-1,209,143,8,8,NOT WS_GROUP
+    EDITTEXT        32008,216,140,32,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "読み込み時のfps変換リスト",-1,8,155,84,8,NOT WS_GROUP
+    EDITTEXT        32104,92,152,156,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "デフォルトの出力ファイル名",-1,8,167,84,8,NOT WS_GROUP
+    EDITTEXT        32101,92,164,136,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "参照",32301,229,164,18,12,BS_CENTER
+    LTEXT           "出力終了時のサウンド",-1,8,179,68,8,NOT WS_GROUP
+    EDITTEXT        32102,92,176,136,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "参照",32302,229,176,18,12,BS_CENTER
+    LTEXT           "画像処理のスレッド数",-1,8,191,68,8,NOT WS_GROUP
+    EDITTEXT        32010,92,188,32,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "出力時のファイル書き込み単位",-1,8,203,100,8,NOT 
+                    WS_GROUP
+    EDITTEXT        32009,116,200,48,12,ES_AUTOHSCROLL | ES_NUMBER,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "KByte",-1,165,203,23,8,NOT WS_GROUP
+    CONTROL         "SSEを使用",32206,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    8,215,60,12
+    CONTROL         "SSE2を使用",32207,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    68,215,60,12
+    CONTROL         "aviutl.vfpをVFPlugin登録",32208,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,226,100,12
+    CONTROL         "YUY2変換時にY:16-235,UV:16-240の範囲に飽和",32214,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,238,168,12
+    CONTROL         "編集のレジューム機能を有効",32209,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,250,100,12
+    CONTROL         "ファイル選択ダイアログで上書き確認をしない",32215,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,262,136,12
+    CONTROL         "追加読み込みしたファイルのfpsを変換しない",32210,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,274,144,12
+    CONTROL         "ロード時にプロファイルを一時プロファイルに複製して使用する",
+                    32211,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,286,192,12
+    CONTROL         "ロード時に29.97fpsに近いものは自動的に29.97fpsに変換する",
+                    32212,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,298,192,12
+    CONTROL         "ロード時に映像と音声の長さが0.1秒以上ずれているものは自動的にfps調整する",
+                    32213,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,310,244,12
+END
+
+VCMSET DIALOG FIXED IMPURE  0, 0, 211, 96
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "ビデオの圧縮"
+FONT 9, "MS UI Gothic"
+BEGIN
+    LTEXT           "圧縮プログラム(&P):",-1,8,8,52,8,NOT WS_GROUP
+    COMBOBOX        32500,8,19,128,128,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "圧縮の品質 (0〜100)",-1,9,43,64,8,NOT WS_GROUP
+    EDITTEXT        32000,73,40,24,12,0,WS_EX_CLIENTEDGE
+    LTEXT           "キーフレーム (0:無し)",-1,9,59,64,8,NOT WS_GROUP
+    EDITTEXT        32001,73,56,24,12,0,WS_EX_CLIENTEDGE
+    LTEXT           "フレームごと",-1,98,59,40,8,NOT WS_GROUP
+    LTEXT           "データ率 (0:無し)",-1,9,75,52,8,NOT WS_GROUP
+    EDITTEXT        32002,73,72,24,12,0,WS_EX_CLIENTEDGE
+    LTEXT           "KB/秒",-1,98,75,24,8,NOT WS_GROUP
+    DEFPUSHBUTTON   "OK",1,144,8,60,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,144,24,60,14,BS_CENTER
+    PUSHBUTTON      "設定(&S)",32300,144,40,60,14,BS_CENTER
+    PUSHBUTTON      "標準に戻す(&D)",32301,144,56,60,14,BS_CENTER
+    PUSHBUTTON      "バージョン情報(&V)",32302,144,72,60,14,BS_CENTER
+END
+
+WAV_OPTION DIALOGEX 0, 0, 188, 55
+STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "WaveFileReaderの設定"
+FONT 9, "MS UI Gothic", 0, 0, 0x1
+BEGIN
+    EDITTEXT        32000,105,8,32,12,ES_NUMBER,WS_EX_CLIENTEDGE
+    EDITTEXT        32001,147,7,32,12,ES_NUMBER,WS_EX_CLIENTEDGE
+    LTEXT           "x",-1,140,11,6,8,NOT WS_GROUP
+    LTEXT           "動画として読み込む時の解像度",-1,8,11,96,8,NOT WS_GROUP
+    DEFPUSHBUTTON   "OK",1,39,31,50,14,BS_CENTER
+    PUSHBUTTON      "キャンセル",2,100,31,50,14,BS_CENTER
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    0                       "日本語(アクセスキー付き)"
+    1                       "日本語リソース(アクセスキー付き) for ver0.99h4+ By K.Takata"
+    10                      "デフォルト"
+    11                      "自動"
+    12                      "なし"
+    13                      "秒"
+    14                      "分"
+    15                      "時間"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    16                      "インターレース解除"
+    17                      "奇数"
+    18                      "偶数"
+    19                      "二重化"
+    21                      "自動"
+    22                      "自動24fps"
+    23                      "標準"
+    24                      "反転"
+    25                      "周期"
+    26                      "不明"
+    27                      "出力中"
+    28                      "計測中"
+    29                      "検索中"
+    30                      "残り時間"
+    31                      "再圧縮不可"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    32                      "未圧縮"
+    33                      "fps変換無し"
+    34                      "画像サイズ"
+    35                      "記録時間"
+    36                      "フレームレート"
+    37                      "フレーム数"
+    38                      "ビデオ圧縮"
+    39                      "サンプリングレート"
+    40                      "チャンネル数"
+    41                      "オーディオ形式"
+    42                      "強さ"
+    43                      "範囲"
+    44                      "しきい値"
+    45                      "下限値"
+    46                      "上限値"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    49                      "上"
+    50                      "下"
+    51                      "左"
+    52                      "右"
+    53                      "明るさ"
+    54                      "ｺﾝﾄﾗｽﾄ"
+    55                      "輝度"
+    56                      "ガンマ"
+    57                      "色の濃さ"
+    58                      "色合い"
+    59                      "レベル"
+    60                      "音量の最大化"
+    61                      "ぼかしフィルタ"
+    62                      "クリッピング＆リサイズ"
+    63                      "元の縦横比に合せる"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    64                      "元のサイズに拡大"
+    66                      "色調補正"
+    67                      "拡張色調補正"
+    68                      "TV -> PC スケール補正"
+    69                      "RGBの同期"
+    73                      "ヒストグラム"
+    74                      "インターレースの解除"
+    75                      "自動24fps解除"
+    76                      "ドット単位解除"
+    77                      "イメージ表示"
+    78                      "自動解除"
+    79                      "動き重視"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    80                      "横縞部分を二重化"
+    81                      "奇数偶数解除"
+    82                      "位置補間"
+    83                      "適合補間"
+    84                      "インターリーブ"
+    85                      "0.5秒"
+    86                      "1秒"
+    87                      "2秒"
+    88                      "1フレーム"
+    89                      "2フレーム"
+    90                      "5フレーム"
+    91                      "10フレーム"
+    92                      "指定フレーム数"
+    93                      "ナビゲートウィンドウ"
+    94                      "ノイズ除去フィルタ"
+    95                      "ノイズ除去(時間軸)フィルタ"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    96                      "再生ウィンドウ"
+    97                      "フレームレートの変更"
+    98                      "フレームレートの設定"
+    99                      "24fps<-30fpsの間引きには自動24fpsの処理を使う"
+    100                     "サイズの変更"
+    101                     "指定サイズ"
+    102                     "シャープフィルタ"
+    105                     "連番BmpFile (*.bmp)|*.bmp"
+    106                     "ツールウィンドウ"
+    107                     "の設定"
+    108                     "の表示"
+    109                     "フィールドオーダー"
+    110                     "ボトムフィールド -> トップフィールド"
+    111                     "トップフィールド -> ボトムフィールド"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    112                     "ファイル制御"
+    113                     "ビデオ展開形式"
+    114                     "音量の調整"
+    115                     "音声の位置調整"
+    116                     "位置"
+    122                     "縁塗りつぶし"
+    123                     "黒で塗る"
+    124                     "縁の色で塗る"
+    125                     "PC -> TV スケール補正"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    128                     "中央に配置"
+    129                     "何もしない"
+    130                     "ウィンドウズをシャットダウン"
+    131                     "ウィンドウズを休止"
+    132                     "ウィンドウズをサスペンド"
+    133                     "AviUtlを終了"
+    134                     "バッチ出力リスト"
+    135                     "[出力ファイル名が指定されていません]"
+    136                     "色変換の設定"
+    137                     "[ 入力 ]"
+    138                     "[ 出力 ]"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    1000                    "ファイルの読み込みに失敗しました。"
+    1001                    "ファイルの書き込みに失敗しました。\n\nディスクの空き容量が足りないか\n作成できるファイルサイズの上限を超えた可能性があります。"
+    1002                    "ファイルの作成に失敗しました。"
+    1003                    "このファイルには対応していません。"
+    1004                    "使用されていたファイルが見つからないか変更されています。\n別のファイルを指定しますか？"
+    1005                    "同時に読み込めるファイルは%d個までです。"
+    1006                    "%dx%dを超える画像サイズのファイルは編集できません。\n\n最大画像サイズはシステムの設定で変更出来ます。"
+    1007                    "%dx%dより小さい画像サイズのファイルは編集できません。"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    1008                    "編集できる最大フレーム数は%dフレームまでです。\n\n最大フレーム数はシステムの設定で変更出来ます。"
+    1009                    "再圧縮するフレームがありますがよろしいですか？\n\n※フレーム%d%s。"
+    1010                    "バッチ登録は最大%d個までです。"
+    1011                    "の画像フォーマットが違う"
+    1012                    "の画像サイズが違う"
+    1013                    "がキーフレームから続いていない"
+    1014                    "が60fps化モードで読み込まれている"
+    1015                    "編集しているファイルへの上書きは出来ません。"
+    1016                    "ビデオ圧縮に失敗しました。\n\n画像サイズやフレームレートを適正に設定しないと\n使用出来ないコーデックの可能性があります。"
+    1017                    "オーディオ圧縮に失敗しました。\n\n使用出来ないコーデックの可能性があります。"
+    1018                    "出力を中断しますか？"
+    1019                    "検索を中断しますか？"
+    1020                    "ありません。"
+    1021                    "使用されていません。"
+    1022                    "プロファイル名に以下の文字は使えません。\n\n%s"
+    1023                    "入力ファイルへの上書きは出来ません。"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    1024                    "連結できるファイルは最大%d個までです。"
+    1025                    "再圧縮しないと正常なファイルが作成されない可能性がありますがよろしいですか？"
+    1026                    "出力プラグインが見つかりません。"
+    1028                    "ファイルの情報"
+    1029                    "プラグインフィルタ情報"
+    1030                    "入力プラグイン情報"
+    1031                    "出力プラグイン情報"
+    1032                    "オーバーレイ情報"
+    1033                    "バージョン情報"
+    1034                    "言語拡張リソース情報"
+    1035                    "メモリが足りません。"
+    1036                    "出力に失敗したファイルがあります"
+    1037                    "すべて削除しますがよろしいですか？"
+    1038                    "ファイルの読み込みに失敗しました。\n\nこのファイル形式には対応していないか\n対応するコーデックやプラグインが\n登録されていない可能性があります。"
+    1039                    "ファイルの出力に失敗しました。"
+END
+
+STRINGTABLE FIXED IMPURE 
+BEGIN
+    1040                    "[開始]ボタンを押すとバッチ出力を開始します"
+    1041                    "すべて正常に終了しました"
+    1042                    """%s""を出力中です"
+    1043                    "他のプロセスでの出力終了を待っています"
+    1044                    "色変換プラグイン情報"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
