@@ -553,7 +553,7 @@ BEGIN
                     96,16,NOT WS_GROUP
 END
 
-LOAD_OPTION DIALOG FIXED IMPURE  0, 0, 370, 72
+LOAD_OPTION DIALOG FIXED IMPURE  0, 0, 374, 76
 STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS
 FONT 9, "MS UI Gothic"
 BEGIN
@@ -695,9 +695,10 @@ BEGIN
     LTEXT           "最大フレーム数",-1,8,20,52,8,NOT WS_GROUP
     EDITTEXT        32002,92,17,48,12,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_CLIENTEDGE
-    LTEXT           "キャッシュフレーム数",-1,8,32,64,8,NOT WS_GROUP
+    CONTROL "キャッシュサイズ", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 32, 64, 8
     EDITTEXT        32003,92,29,48,12,ES_AUTOHSCROLL | ES_NUMBER,
                     WS_EX_CLIENTEDGE
+    CONTROL "MByte", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 141, 32, 23, 8
     LTEXT           "リサイズ設定の解像度リスト",-1,8,44,84,8,NOT WS_GROUP
     EDITTEXT        32103,92,41,156,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
     CONTROL         "プラグインとコーデックの情報をキャッシュする",32202,
@@ -710,7 +711,6 @@ BEGIN
                     32204,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,92,208,12
     CONTROL "再生ウィンドウの動画再生をメインウィンドウに表示する", 32223, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 104, 192, 12
     CONTROL "YUY2フィルタモード (プラグインフィルタが使えなくなります)", 32205, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 116, 192, 12
-    CONTROL "LargeAddressAwareを有効にする", 32216, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 128, 168, 12
     CONTROL "※上記の設定はAviUtlの再起動後に有効になります", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 143, 184, 8
     CONTROL "", -1, STATIC, SS_ETCHEDHORZ | WS_CHILD | WS_VISIBLE, 4, 157, 248, 2
     CONTROL "任意フレーム数移動", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 166, 64, 8
@@ -828,7 +828,7 @@ END
 STRINGTABLE FIXED IMPURE 
 BEGIN
     0                       "日本語(アクセスキー付き)"
-    1                       "日本語リソース(アクセスキー付き) for ver1.00 By K.Takata"
+    1                       "日本語リソース(アクセスキー付き) for ver1.10 By K.Takata"
     10                      "デフォルト"
     11                      "自動"
     12                      "なし"
@@ -1033,7 +1033,7 @@ BEGIN
     1032                    "オーバーレイ情報"
     1033                    "バージョン情報"
     1034                    "言語拡張リソース情報"
-    1035                    "メモリが足りません。"
+    1035, "メモリの確保に失敗しました。\n\nキャッシュサイズを調整して再試行しますか？"
     1036                    "出力に失敗したファイルがあります"
     1037                    "すべて削除しますがよろしいですか？"
     1038                    "ファイルの読み込みに失敗しました。\n\nこのファイル形式には対応していないか\n対応するコーデックやプラグインが\n登録されていない可能性があります。"
@@ -1049,6 +1049,7 @@ BEGIN
     1044                    "色変換プラグイン情報"
     1045, "複数の操作が同じショートカットキーに割り当てられています\n\n%s\n%s\n"
     1046, "現在の編集データは破棄されますがよろしいですか？"
+    1047, "メモリをアドレスに割り当てることができません。"
 END
 
 #endif    // 日本語 resources
