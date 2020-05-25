@@ -37,6 +37,7 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "編集プロジェクトを開く(&R)",  5118
         MENUITEM "編集プロジェクトの保存(&J)",  1023
+        MENUITEM "編集プロジェクトの上書き(&T)", 1024
         MENUITEM SEPARATOR
         MENUITEM "AVI出力(&S)\t Ctrl+S",        1003
         MENUITEM "WAV出力(&W)",                 1062
@@ -62,6 +63,12 @@ BEGIN
             MENUITEM "AVIファイルの連結(&C)",       1057
             MENUITEM "AVIファイルの合成(&M)",       1058
         END
+        POPUP "最近使ったファイル(&U)"
+        BEGIN
+            MENUITEM "なし",  5596
+            MENUITEM SEPARATOR
+            MENUITEM "最近使ったファイルの履歴を消去(&D)",  1073
+        END
         MENUITEM SEPARATOR
         POPUP "環境設定(&V)"
         BEGIN
@@ -78,9 +85,15 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "システムの設定(&S)",          108
             MENUITEM "コーデックの設定(&C)",        109
+            POPUP "入力プラグインの設定(&N)"
+            BEGIN
+                MENUITEM SEPARATOR
+            END
             MENUITEM "入力プラグイン優先度の設定(&I)", 1086
             MENUITEM "ショートカットキーの設定(&K)", 102
             MENUITEM "言語の設定 (&Language)",      106
+            MENUITEM SEPARATOR
+            MENUITEM "ウィンドウの位置を初期化(&W)",  111
         END
         MENUITEM SEPARATOR
         MENUITEM "終了(&X)",                    1002
@@ -127,6 +140,7 @@ BEGIN
         MENUITEM "選択範囲のフレームに画像を貼り付け", 5184
         MENUITEM "選択範囲のフレーム切り出し",  5143
         MENUITEM "選択範囲のフレーム削除",      5101
+        MENUITEM SEPARATOR
         MENUITEM "元に戻す\t Ctrl+Z",           5147
         MENUITEM "すべてのフレームを選択\t Ctrl+A", 5112
         MENUITEM SEPARATOR
@@ -181,6 +195,8 @@ BEGIN
             MENUITEM "前のマークフレームに移動",    5179
             MENUITEM "次のプロファイルの変更フレームに移動", 5176
             MENUITEM "前のプロファイルの変更フレームに移動", 5177
+            MENUITEM "次のフレーム不連続点に移動",  5170
+            MENUITEM "前のフレーム不連続点に移動",  5171
             MENUITEM "任意フレーム数次移動A\t PageDown", 5187
             MENUITEM "任意フレーム数前移動A\t PageUp", 5188
             MENUITEM "任意フレーム数次移動B",       5189
@@ -189,6 +205,8 @@ BEGIN
             MENUITEM "任意フレーム数前移動C",       5192
             MENUITEM "任意フレーム数次移動D",       5193
             MENUITEM "任意フレーム数前移動D",       5194
+            MENUITEM "現在のフレームから再生ウィンドウで再生/停止",  1099
+            MENUITEM "現在のフレーム番号をクリップボードにコピー",  1090
         END
     END
     POPUP "プロファイル(&P)"
@@ -216,6 +234,8 @@ BEGIN
             MENUITEM SEPARATOR
             MENUITEM "ズームイン\t +(テンキー)",    9107
             MENUITEM "ズームアウト\t -(テンキー)",  9108
+            MENUITEM SEPARATOR
+            MENUITEM "ウィンドウサイズを自動変更",  9116
         END
         MENUITEM "オーディオ波形の表示(&A)",    9104
         MENUITEM "時間の表示(&T)",              9114
@@ -266,6 +286,7 @@ BEGIN
         MENUITEM "クリップボードに出力イメージをコピー", 1070
         MENUITEM "選択範囲の切り出し",          5143
         MENUITEM "選択範囲の削除",              5101
+        MENUITEM SEPARATOR
         MENUITEM "元に戻す",                    5147
         MENUITEM "すべてを選択",                5112
         MENUITEM SEPARATOR
@@ -304,6 +325,8 @@ BEGIN
             MENUITEM "320x240",                     114
             MENUITEM "160x120",                     115
             MENUITEM "WindowSize",                  116
+            MENUITEM SEPARATOR
+            MENUITEM "最大化",  109
         END
     END
 END
@@ -353,6 +376,8 @@ BEGIN
             MENUITEM "320x240",                     114
             MENUITEM "160x120",                     115
             MENUITEM "WindowSize",                  116
+            MENUITEM SEPARATOR
+            MENUITEM "最大化",  109
         END
         MENUITEM SEPARATOR
         MENUITEM "ビデオフィルタを無効にする",  104
@@ -442,8 +467,8 @@ BEGIN
     PUSHBUTTON      "開始",32710,272,125,40,14,BS_CENTER
     PUSHBUTTON      "中断",32711,272,141,40,14,BS_CENTER
     LTEXT           "バッチ出力終了時に",-1,10,186,60,8,NOT WS_GROUP
-    COMBOBOX        32500,71,183,96,96,CBS_DROPDOWNLIST | WS_TABSTOP
-    CONTROL         "正常に終了したものを自動的に削除",32200,"Button",
+    CONTROL         "", 32500, COMBOBOX, CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 71, 183, 112, 96
+    CONTROL         "正常に終了したものを自動的に削除", 32200, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 192, 184, 112, 12
                     BS_AUTOCHECKBOX | WS_TABSTOP,180,184,112,12
     LTEXT           "",32400,0,202,320,12,SS_CENTERIMAGE | NOT WS_GROUP,
                     WS_EX_STATICEDGE
@@ -497,25 +522,21 @@ BEGIN
     COMBOBOX        32500,8,8,112,128,CBS_DROPDOWNLIST | WS_TABSTOP
 END
 
-KEYCFGLIST DIALOG FIXED IMPURE  0, 0, 272, 260
+KEYCFGLIST DIALOG FIXED IMPURE  0, 0, 340, 260
 STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "ショートカットキー登録"
 FONT 9, "MS UI Gothic"
 BEGIN
-    DEFPUSHBUTTON   "OK",1,208,220,52,14,BS_CENTER
-    PUSHBUTTON      "キャンセル",2,208,236,52,14,BS_CENTER
-    LISTBOX         32600,8,8,192,244,LBS_HASSTRINGS | LBS_DISABLENOSCROLL | 
-                    WS_VSCROLL | WS_TABSTOP
-    LISTBOX         32601,208,8,56,160,LBS_DISABLENOSCROLL | WS_VSCROLL | 
-                    WS_TABSTOP
-    CONTROL         "Shift",32200,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,208,
-                    164,28,12
-    CONTROL         "Ctrl",32201,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,240,
-                    164,24,12
-    CONTROL         "Alt",32202,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,208,
-                    176,24,12
-    PUSHBUTTON      "標準に戻す(&D)",32700,208,196,52,14,BS_CENTER
+    CONTROL "OK", 1, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 276, 220, 52, 14
+    CONTROL "キャンセル", 2, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 276, 236, 52, 14
+    CONTROL "ショートカットリスト", 32600, LISTBOX, LBS_NOTIFY | LBS_HASSTRINGS | LBS_DISABLENOSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 8, 8, 212, 244
+    CONTROL "キーリスト", 32602, LISTBOX, LBS_NOTIFY | LBS_HASSTRINGS | LBS_DISABLENOSCROLL | LBS_NOSEL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 219, 8, 48, 244
+    CONTROL "キーリスト", 32601, LISTBOX, LBS_NOTIFY | LBS_DISABLENOSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 276, 8, 56, 160
+    CONTROL "Shift", 32200, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 276, 164, 28, 12
+    CONTROL "Ctrl", 32201, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 308, 164, 24, 12
+    CONTROL "Alt", 32202, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 276, 176, 24, 12
+    CONTROL "標準に戻す(&D)", 32700, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 276, 196, 52, 14
 END
 
 LANG DIALOG FIXED IMPURE  0, 0, 128, 80
@@ -573,7 +594,23 @@ BEGIN
     ICON            "drag",32715,-1,-1,1,1
 END
 
-SAVE_OPTION DIALOGEX 0, 0, 370, 178
+SAVE_EXINFO DIALOG 0, 0, 298, 104
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Ex.info"
+LANGUAGE LANG_JAPANESE, 0x1
+FONT 9, "MS UI Gothic"
+BEGIN
+   CONTROL "タイトル :", 32402, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 7, 7, 28, 8
+   CONTROL "", 32100, EDIT, ES_LEFT | ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 7, 15, 140, 46 , 0x00000200
+   CONTROL "コメント :", 32403, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 150, 7, 28, 8
+   CONTROL "", 32101, EDIT, ES_LEFT | ES_MULTILINE | ES_AUTOHSCROLL | ES_WANTRETURN | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_VSCROLL | WS_TABSTOP, 150, 15, 140, 46 , 0x00000200
+   CONTROL "著作権 :", 32404, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 7, 67, 24, 8
+   CONTROL "", 32102, EDIT, ES_LEFT | ES_AUTOHSCROLL | ES_WANTRETURN | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 34, 65, 256, 12 , 0x00000200
+   CONTROL "OK", 1, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 181, 83, 52, 14
+   CONTROL "キャンセル", 2, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 238, 83, 52, 14
+END
+
+SAVE_OPTION DIALOGEX 0, 0, 370, 112
 STYLE DS_3DLOOK | DS_CONTROL | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS
 FONT 9, "MS UI Gothic", 0, 0, 0x1
 BEGIN
@@ -594,23 +631,13 @@ BEGIN
     CONTROL         "音声無し",32201,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
                     316,80,40,10
     LTEXT           "インターリーブ間隔(&I):",-1,68,97,57,8,NOT WS_GROUP
-    EDITTEXT        32000,126,95,14,12,ES_AUTOHSCROLL | ES_WANTRETURN,
-                    WS_EX_CLIENTEDGE | WS_EX_RIGHT
-    LTEXT           "フレーム",-1,142,97,24,8,NOT WS_GROUP
+    CONTROL "1", 32000, EDIT, ES_LEFT | ES_AUTOHSCROLL | ES_WANTRETURN | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 123, 95, 16, 12 , 0x00001200
+    CONTROL "フレーム", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 140, 97, 26, 8
     CONTROL         "音声をWAV出力(&W)",32204,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,172,95,57,12
     CONTROL         "ログ出力(&L)",32202,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,240,95,43,12
     PUSHBUTTON      "Ex.info",32303,287,95,24,12,BS_CENTER
-    LTEXT           "タイトル(&T):",32402,67,112,34,8,NOT WS_GROUP
-    EDITTEXT        32100,67,120,140,36,ES_MULTILINE | ES_AUTOHSCROLL | 
-                    ES_WANTRETURN | WS_VSCROLL,WS_EX_CLIENTEDGE
-    LTEXT           "コメント(&C):",32403,210,112,34,8,NOT WS_GROUP
-    EDITTEXT        32101,210,120,140,36,ES_MULTILINE | ES_AUTOHSCROLL | 
-                    ES_WANTRETURN | WS_VSCROLL,WS_EX_CLIENTEDGE
-    LTEXT           "著作権(&R):",32404,67,162,31,8,NOT WS_GROUP
-    EDITTEXT        32102,101,160,249,12,ES_AUTOHSCROLL | ES_WANTRETURN,
-                    WS_EX_CLIENTEDGE
 END
 
 SELECT DIALOG FIXED IMPURE  0, 0, 142, 72
@@ -650,14 +677,14 @@ BEGIN
     EDITTEXT        32100,8,8,256,12
 END
 
-SYSTEM DIALOG FIXED IMPURE  0, 0, 258, 348
+SYSTEM DIALOG FIXED IMPURE  0, 0, 258, 456
 STYLE DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
     WS_SYSMENU
 CAPTION "システムの設定"
 FONT 9, "MS UI Gothic"
 BEGIN
-    DEFPUSHBUTTON   "OK",1,76,328,48,14,BS_CENTER
-    PUSHBUTTON      "キャンセル",2,136,328,48,14,BS_CENTER
+    CONTROL "OK", 1, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 75, 434, 48, 14
+    CONTROL "キャンセル", 2, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 135, 434, 48, 14
     LTEXT           "最大画像サイズ",-1,8,8,52,8,NOT WS_GROUP
     LTEXT           "幅",-1,84,8,8,8,NOT WS_GROUP
     EDITTEXT        32000,92,5,48,12,ES_AUTOHSCROLL | ES_NUMBER,
@@ -681,60 +708,51 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,8,80,116,12
     CONTROL         "フレーム移動時にSHIFTキーを押している時は範囲選択移動にする",
                     32204,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,92,208,12
-    CONTROL         "YUY2フィルタモード (プラグインフィルタが使えなくなります)",
-                    32205,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,104,192,12
-    LTEXT           "※上記の設定はAviUtlの再起動後に有効になります",-1,8,
-                    120,184,8,NOT WS_GROUP
-    CONTROL         "",-1,"Static",SS_ETCHEDHORZ,4,134,248,2
-    LTEXT           "任意フレーム数移動",-1,8,143,64,8,NOT WS_GROUP
-    LTEXT           "A",-1,85,143,8,8,NOT WS_GROUP
-    EDITTEXT        32005,92,140,32,12,ES_AUTOHSCROLL | ES_NUMBER,
-                    WS_EX_CLIENTEDGE
-    LTEXT           "B",-1,126,143,8,8,NOT WS_GROUP
-    EDITTEXT        32006,133,140,32,12,ES_AUTOHSCROLL | ES_NUMBER,
-                    WS_EX_CLIENTEDGE
-    LTEXT           "C",-1,168,143,8,8,NOT WS_GROUP
-    EDITTEXT        32007,175,140,32,12,ES_AUTOHSCROLL | ES_NUMBER,
-                    WS_EX_CLIENTEDGE
-    LTEXT           "D",-1,209,143,8,8,NOT WS_GROUP
-    EDITTEXT        32008,216,140,32,12,ES_AUTOHSCROLL | ES_NUMBER,
-                    WS_EX_CLIENTEDGE
-    LTEXT           "読み込み時のfps変換リスト",-1,8,155,84,8,NOT WS_GROUP
-    EDITTEXT        32104,92,152,156,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
-    LTEXT           "デフォルトの出力ファイル名",-1,8,167,84,8,NOT WS_GROUP
-    EDITTEXT        32101,92,164,136,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
-    PUSHBUTTON      "参照",32301,229,164,18,12,BS_CENTER
-    LTEXT           "出力終了時のサウンド",-1,8,179,68,8,NOT WS_GROUP
-    EDITTEXT        32102,92,176,136,12,ES_AUTOHSCROLL,WS_EX_CLIENTEDGE
-    PUSHBUTTON      "参照",32302,229,176,18,12,BS_CENTER
-    LTEXT           "画像処理のスレッド数",-1,8,191,68,8,NOT WS_GROUP
-    EDITTEXT        32010,92,188,32,12,ES_AUTOHSCROLL | ES_NUMBER,
-                    WS_EX_CLIENTEDGE
-    LTEXT           "出力時のファイル書き込み単位",-1,8,203,100,8,NOT 
-                    WS_GROUP
-    EDITTEXT        32009,116,200,48,12,ES_AUTOHSCROLL | ES_NUMBER,
-                    WS_EX_CLIENTEDGE
-    LTEXT           "KByte",-1,165,203,23,8,NOT WS_GROUP
-    CONTROL         "SSEを使用",32206,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    8,215,60,12
-    CONTROL         "SSE2を使用",32207,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    68,215,60,12
-    CONTROL         "aviutl.vfpをVFPlugin登録",32208,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,8,226,100,12
-    CONTROL         "YUY2変換時にY:16-235,UV:16-240の範囲に飽和",32214,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,238,168,12
-    CONTROL         "編集のレジューム機能を有効",32209,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,8,250,100,12
-    CONTROL         "ファイル選択ダイアログで上書き確認をしない",32215,
-                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,262,136,12
-    CONTROL         "追加読み込みしたファイルのfpsを変換しない",32210,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,8,274,144,12
-    CONTROL         "ロード時にプロファイルを一時プロファイルに複製して使用する",
-                    32211,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,286,192,12
-    CONTROL         "ロード時に29.97fpsに近いものは自動的に29.97fpsに変換する",
-                    32212,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,298,192,12
-    CONTROL         "ロード時に映像と音声の長さが0.1秒以上ずれているものは自動的にfps調整する",
-                    32213,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,310,244,12
+    CONTROL "再生ウィンドウの動画再生をメインウィンドウに表示する", 32223, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 104, 192, 12
+    CONTROL "YUY2フィルタモード (プラグインフィルタが使えなくなります)", 32205, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 116, 192, 12
+    CONTROL "LargeAddressAwareを有効にする", 32216, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 128, 168, 12
+    CONTROL "※上記の設定はAviUtlの再起動後に有効になります", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 143, 184, 8
+    CONTROL "", -1, STATIC, SS_ETCHEDHORZ | WS_CHILD | WS_VISIBLE, 4, 157, 248, 2
+    CONTROL "任意フレーム数移動", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 166, 64, 8
+    CONTROL "A", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 85, 166, 8, 8
+    CONTROL "", 32005, EDIT, ES_LEFT | ES_AUTOHSCROLL | ES_NUMBER | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 92, 163, 32, 12 , 0x00000200
+    CONTROL "B", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 126, 166, 8, 8
+    CONTROL "", 32006, EDIT, ES_LEFT | ES_AUTOHSCROLL | ES_NUMBER | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 133, 163, 32, 12 , 0x00000200
+    CONTROL "C", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 168, 166, 8, 8
+    CONTROL "", 32007, EDIT, ES_LEFT | ES_AUTOHSCROLL | ES_NUMBER | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 175, 163, 32, 12 , 0x00000200
+    CONTROL "D", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 209, 166, 8, 8
+    CONTROL "", 32008, EDIT, ES_LEFT | ES_AUTOHSCROLL | ES_NUMBER | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 216, 163, 32, 12 , 0x00000200
+    CONTROL "読み込み時のfps変換リスト", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 178, 84, 8
+    CONTROL "", 32104, EDIT, ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 92, 175, 156, 12 , 0x00000200
+    CONTROL "デフォルトの出力ファイル名", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 190, 84, 8
+    CONTROL "", 32101, EDIT, ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 92, 187, 136, 12 , 0x00000200
+    CONTROL "参照", 32301, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 229, 187, 18, 12
+    CONTROL "出力終了時のサウンド", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 202, 68, 8
+    CONTROL "", 32102, EDIT, ES_LEFT | ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 92, 199, 136, 12 , 0x00000200
+    CONTROL "参照", 32302, BUTTON, BS_PUSHBUTTON | BS_CENTER | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 229, 199, 18, 12
+    CONTROL "画像処理のスレッド数(0=自動設定)", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 214, 100, 8
+    CONTROL "", 32010, EDIT, ES_LEFT | ES_AUTOHSCROLL | ES_NUMBER | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 112, 211, 25, 12 , 0x00000200
+    CONTROL "個別のCPUを割り当てる", 32217, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 150, 212, 83, 11
+    CONTROL "出力時のファイル書き込み単位", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 8, 226, 92, 8
+    CONTROL "", 32009, EDIT, ES_LEFT | ES_AUTOHSCROLL | ES_NUMBER | WS_CHILD | WS_VISIBLE | WS_BORDER | WS_TABSTOP, 112, 223, 48, 12 , 0x00000200
+    CONTROL "KByte", -1, STATIC, SS_LEFT | WS_CHILD | WS_VISIBLE, 161, 226, 23, 8
+    CONTROL "SSEを使用", 32206, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 238, 60, 12
+    CONTROL "SSE2を使用", 32207, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 68, 238, 60, 12
+    CONTROL "aviutl.vfpをVFPlugin登録", 32208, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 250, 100, 12
+    CONTROL "[開く]でプロジェクトファイルを指定した時はプロジェクトとして開く", 32219, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 262, 188, 12
+    CONTROL "YUY2変換時にY:16-235,UV:16-240の範囲に飽和", 32214, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 274, 168, 12
+    CONTROL "編集のレジューム機能を有効", 32209, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 286, 100, 12
+    CONTROL "ファイル選択ダイアログで上書き確認をしない", 32215, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 298, 136, 12
+    CONTROL "ファイルのドラッグ＆ドロップ時にファイル選択ダイアログを表示する", 32218, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 310, 188, 12
+    CONTROL "ファイルのドラッグ＆ドロップ時にウィンドウをアクティブにする", 32224, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 322, 200, 12
+    CONTROL "編集ファイルが閉じられる時に確認ダイアログを表示する", 32220, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 334, 172, 12
+    CONTROL "追加読み込みしたファイルのfpsを変換しない", 32210, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 346, 144, 12
+    CONTROL "ロード時にプロファイルを一時プロファイルに複製して使用する", 32211, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 358, 192, 12
+    CONTROL "ロード時に29.97fpsに近いものは自動的に29.97fpsに変換する", 32212, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 370, 192, 12
+    CONTROL "ロード時に映像と音声の長さが0.1秒以上ずれているものは自動的にfps調整する", 32213, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 382, 244, 12
+    CONTROL "編集プロジェクトロード時に現在のプロファイルの設定を反映させる", 32221, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 394, 184, 12
+    CONTROL "関連ウィンドウ同士を移動時にスナップする", 32222, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 406, 128, 12
+    CONTROL "トラックバーでクリックした位置に直接移動する", 32225, BUTTON, BS_AUTOCHECKBOX | WS_CHILD | WS_VISIBLE | WS_TABSTOP, 8, 418, 140, 12
 END
 
 VCMSET DIALOG FIXED IMPURE  0, 0, 211, 96
@@ -810,7 +828,7 @@ END
 STRINGTABLE FIXED IMPURE 
 BEGIN
     0                       "日本語(アクセスキー付き)"
-    1                       "日本語リソース(アクセスキー付き) for ver0.99h4+ By K.Takata"
+    1                       "日本語リソース(アクセスキー付き) for ver1.00 By K.Takata"
     10                      "デフォルト"
     11                      "自動"
     12                      "なし"
@@ -956,6 +974,19 @@ BEGIN
     136                     "色変換の設定"
     137                     "[ 入力 ]"
     138                     "[ 出力 ]"
+    139,                    "追加読み込み"
+    140,                    "音声読み込み"
+    141,                    "プロジェクトを開く"
+    142,                    "プロジェクトを保存"
+    143,                    "AVI出力"
+END
+
+STRINGTABLE
+LANGUAGE LANG_JAPANESE, 0x1
+BEGIN
+    144, "WAV出力"
+    145, "AviUtlを終了＆ウィンドウズを休止"
+    146, "AviUtlを終了＆ウィンドウズをサスペンド"
 END
 
 STRINGTABLE FIXED IMPURE 
@@ -1016,6 +1047,8 @@ BEGIN
     1042                    """%s""を出力中です"
     1043                    "他のプロセスでの出力終了を待っています"
     1044                    "色変換プラグイン情報"
+    1045, "複数の操作が同じショートカットキーに割り当てられています\n\n%s\n%s\n"
+    1046, "現在の編集データは破棄されますがよろしいですか？"
 END
 
 #endif    // 日本語 resources
